@@ -1,0 +1,20 @@
+version: "2"
+services:
+  puppet-agent:
+    image: puppet-centos:7
+    container_name: puppet-agent
+    command: init
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      - container=docker
+    volumes:
+      - /sys/fs/cgroup
+    tty: true
+    ports:
+      - "5000:22"
+    networks:
+      - demo
+networks:
+  demo:
+    external: true

@@ -1,0 +1,5 @@
+
+package { 'screen':
+  ensure => 'installed',
+}
+

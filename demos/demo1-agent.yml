@@ -1,0 +1,20 @@
+version: "2"
+services:
+  puppet-debian:
+    image: puppet-debian:8
+    container_name: puppet-debian
+    networks:
+      - demo
+  puppet-fedora:
+    image: puppet-fedora:24
+    container_name: puppet-fedora
+    networks:
+      - demo
+  puppet-centos:
+    image: puppet-centos:7
+    container_name: puppet-centos
+    networks:
+      - demo
+networks:
+  demo:
+    external: true

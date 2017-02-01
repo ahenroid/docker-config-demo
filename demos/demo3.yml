@@ -1,0 +1,21 @@
+version: "2"
+services:
+  puppet-inventory:
+    image: "${IMAGE}"
+    container_name: "puppet-inventory"
+    volumes_from:
+      - puppet-agent
+    command: /opt/puppetlabs/bin/puppet inventory catalog
+    read_only: true
+    tmpfs: /tmp
+    networks:
+      demo:
+  puppet-agent:
+    image: puppet-debian:8
+    container_name: puppet-agent
+    command: /bin/true
+    networks:
+      demo:
+networks:
+  demo:
+    external: true
