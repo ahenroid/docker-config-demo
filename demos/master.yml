@@ -1,0 +1,14 @@
+version: "2"
+services:
+  puppet-master:
+    image: puppet-master-centos:7
+    container_name: puppet-master
+    volumes:
+      - ./code:/etc/puppetlabs/code
+    networks:
+      demo:
+        aliases:
+          - puppet
+networks:
+  demo:
+    external: true

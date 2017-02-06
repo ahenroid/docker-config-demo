@@ -8,14 +8,9 @@ services:
     command: /opt/puppetlabs/bin/puppet inventory catalog
     read_only: true
     tmpfs: /tmp
-    networks:
-      demo:
+    network_mode: "none"
   puppet-agent:
     image: puppet-debian:8
     container_name: puppet-agent
     command: /bin/true
-    networks:
-      demo:
-networks:
-  demo:
-    external: true
+    network_mode: "none"

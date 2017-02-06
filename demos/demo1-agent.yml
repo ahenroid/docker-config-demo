@@ -3,16 +3,19 @@ services:
   puppet-debian:
     image: puppet-debian:8
     container_name: puppet-debian
+    command: puppet agent -t --environment demo1
     networks:
       - demo
   puppet-fedora:
     image: puppet-fedora:24
     container_name: puppet-fedora
+    command: puppet agent -t --environment demo1
     networks:
       - demo
   puppet-centos:
     image: puppet-centos:7
     container_name: puppet-centos
+    command: puppet agent -t --environment demo1
     networks:
       - demo
 networks:
